@@ -19,4 +19,4 @@ database=new Sequelize(configer.url,{
     );
   }
 
-export default database;
+export default  database;
