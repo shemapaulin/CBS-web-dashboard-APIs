@@ -1,32 +1,29 @@
 import { DataTypes } from 'sequelize';
-import database from '.';
+import db from './index.js';
 
-
-const User = database.define('user', {
-    userId: {
-        type: DataTypes.INTEGER,
-        primaryKey: true,
-        autoIncrement: true,
-    },
-    username: {
-        type: DataTypes.STRING,
-        allowNull: false,
-    },
-    email: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        unique: true,
-
-    },
-    password: {
-        type: DataTypes.STRING,
-        allowNull: false,
-    },
+const User = db.define('user', {
+  userId: {
+    type: DataTypes.INTEGER,
+    primaryKey: true,
+    autoIncrement: true,
+  },
+  name: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  email: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  password: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
 }, {
-    timestamps: false,
-},
+  timestamps: false,
+  tableName: "user",
+});
 
-);
-
+export default User;
 
 export {User}
