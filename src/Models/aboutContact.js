@@ -1,25 +1,23 @@
-import { DataTypes } from 'sequelize';
-import database from '.';
+import { DataTypes } from "sequelize";
+import database from ".";
 
-
-
-const aboutContact = database.define('abautContact', {
+const aboutContact = database.define(
+  "abautContact",
+  {
     Phone_number: {
-        type: DataTypes.STRING,
+      type: DataTypes.STRING,
 
-        allowNull: false,
+      allowNull: false,
     },
     Email: {
-        type: DataTypes.STRING,
+      type: DataTypes.STRING,
 
-        allowNull: false,
+      allowNull: false,
     },
-
-},{
+  },
+  {
     timestamps: false,
-});
+  }
+);
 
-
-
-
-export default aboutContact
+export default aboutContact;

@@ -21,6 +21,22 @@ try {
 } catch (error) {
     
 }
+ const getPurePassword =async(password,hashedPassword)=>{
 
+  try{
 
-export default encode
+    let matched= await bcrypt.compare(password,hashedPassword);
+      if(!matched)
+       {
+      return console.log("something went wrong while decoding password");
+      }
+      else {
+        return password;
+      }
+    }
+  
+    catch(error){
+      console.log(error);
+    }
+  }
+export {encode,getPurePassword}
