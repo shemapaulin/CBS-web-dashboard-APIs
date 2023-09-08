@@ -4,14 +4,14 @@
     try {
       const token = req.headers.authorization.split(' ')[1];
       if (!token) {
-        return res.status(404).send("Bad request");
+        return res.status(404).send("you're unauthorised");
       }
       const decodedToken = jwt.verify(token, process.env.SECRET_KEY);
       req.user = decodedToken;
       console.log(req.user);
       next();
     } catch (error) {
-      console.error(`Happening now : ${error}`)
+      console.error(`error: ${error}`)
       res.status(400).json({
         error
       })

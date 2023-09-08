@@ -72,7 +72,7 @@ const userLogin = async (req, res) => {
 
 const getUser = async (req, res) => {
   const userId = req.body.userId;
-  const user = await User.findOne({ where: { userId: userId} });
+  const user = await User.findOne({ where: { userId: userId } });
   console.log(user);
   if (user) {
     res.json({ result: user });
@@ -86,10 +86,68 @@ const getUsers = async (req, res) => {
   const user = await User.findAll();
   if (user) {
     res.json({ result: user });
-
   } else {
     res.status(404).json({ message: "No record found" });
   }
 };
 
-export { createUserAccount, userLogin, getUser, getUsers };
+const updateUser = async (req, res) => {
+  try {
+    const userId = req.params.id;
+    const inputValidation = userSchema.validate(req.body);
+    if (inputValidation.error) return reportJoiError(inputValidation, res);
+    req.body.password = await encode(req.body.password);
+    let password = req.body.password;
+    let email = req.body.email;
+    let name = req.body.username;
+    const userInputs = {
+      password,
+      email,
+      name,
+    };
+
+    const userUpdate = await User.update(userInputs, {
+      where: { userId: userId },
+    });
+
+    if (userUpdate) {
+      res.status(200).json({
+        message: "you have succesfully updated Account",
+        result: req.body,
+      });
+    } else {
+      res.status(404).send("user not found or no changes made");
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).send(`500 Internal error : ${error}`);
+  }
+};
+
+const deleteUser = async (req, res) => {
+  try {
+    const userId = req.params.id;
+    const user = await User.findOne({ where: { userId: userId } });
+    let destroyUser = await user.destroy();
+    if (destroyUser) {
+      res.status(200).json({
+        message: "you have succesfully deleted Account",
+        result: User,
+      });
+    } else {
+      res.status(404).send("user not found ");
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).send(`500 Internal error : ${error}`);
+  }
+};
+
+export {
+  createUserAccount,
+  userLogin,
+  getUser,
+  getUsers,
+  updateUser,
+  deleteUser,
+};
