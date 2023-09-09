@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import database from "./src/Models/index.js";
 import userRouter from "./src/Routes/userRoute.js";
+import { uploadImage } from "./src/middleware/fileUpload.js";
 
 dotenv.config();
 const app = express();
@@ -11,6 +12,7 @@ const port = process.env.PORT;
 
 
 app.use("/api", userRouter);
+app.use("/", uploadImage);
 app.listen(port, () => {
   console.log(`server is listening on port${port} `);
 });
