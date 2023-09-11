@@ -1,7 +1,7 @@
 import { DataTypes } from 'sequelize';
-import database from '.';
+import db from './index.js';
 
-const Product = database.define('Product', {
+const Product = db.define('Product', {
   prod_description: {
     type: DataTypes.STRING,
     allowNull: true,
@@ -12,6 +12,7 @@ const Product = database.define('Product', {
   },
 }, {
   timestamps: false,
+  tableName: "product",
 });
 
 
