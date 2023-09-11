@@ -1,7 +1,7 @@
 import { DataTypes } from 'sequelize';
-import database from '.';
+import db from './index.js';
 
-const Homepage = database.define('Homepage', {
+const Homepage = db.define('Homepage', {
     hero_description: {
       type: DataTypes.STRING,
       allowNull: true, 
@@ -12,6 +12,9 @@ const Homepage = database.define('Homepage', {
     },
   }, {
     timestamps: false, 
+    tableName: "homepage",
   });
 
-export default Homepage;
+
+  export default Homepage;
+export { Homepage};
