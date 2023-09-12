@@ -1,7 +1,7 @@
 import { DataTypes } from 'sequelize';
-import database from '.';
+import db from './index.js';
 
-const Service = database.define('Service', {
+const Service = db.define('Service', {
     Service_title: {
       type: DataTypes.STRING,
       allowNull: true,
@@ -12,6 +12,7 @@ const Service = database.define('Service', {
     },
   }, {
     timestamps: false,
+    tableName: "service",
   });
 
 export default Service;
