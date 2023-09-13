@@ -6,6 +6,11 @@ import { uploadImage } from "./src/middleware/fileUpload.js";
 import {homeRouter} from"./src/Routes/homePage.js"
 
 import {serviceRoute} from "./src/Routes/ServiceRoute.js";
+import { productRoute } from "./src/Routes/ProductRoute.js";
+
+
+import {serviceRoute} from "./src/Routes/ServiceRoute.js";
+
 
 
 dotenv.config();
@@ -15,7 +20,12 @@ app.use(express.json());
 const port = process.env.PORT;
 
 
+app.use("/api",productRoute)
 app.use("/api",serviceRoute);
+
+
+app.use("/api",serviceRoute);
+
 
 app.use("/api",homeRouter);
 app.use("/api", userRouter);
