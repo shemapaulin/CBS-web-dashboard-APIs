@@ -1,7 +1,7 @@
 import { DataTypes } from "sequelize";
-import database from ".";
+import db from "./index.js";
 
-const aboutContact = database.define(
+const aboutContact = db.define(
   "abautContact",
   {
     Phone_number: {
@@ -17,6 +17,7 @@ const aboutContact = database.define(
   },
   {
     timestamps: false,
+    tableName: "aboutcontact",
   }
 );
 
