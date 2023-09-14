@@ -1,11 +1,11 @@
 import { DataTypes } from 'sequelize';
-import database from '.';
+import db from './index.js';
 
 
 
 
 
-const AboutValues = database.define('AboutValues', {
+const AboutValues = db.define('AboutValues', {
     Main_title: {
       type: DataTypes.STRING,
       allowNull: true, 
@@ -19,7 +19,8 @@ const AboutValues = database.define('AboutValues', {
       allowNull: true, 
     },
   }, {
-    timestamps: false, 
+    timestamps: false,
+    tableName: "aboutvalues", 
   });
 
 
