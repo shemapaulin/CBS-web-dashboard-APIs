@@ -9,19 +9,6 @@ import { productRoute } from "./src/Routes/ProductRoute.js";
 import { valueRoute } from "./src/Routes/aboutValuesRoute.js";
 import { contactsRouter } from "./src/Routes/aboutContactRoute.js";
 
-import { homeRouter } from "./src/Routes/homePage.js";
-import { serviceRoute } from "./src/Routes/ServiceRoute.js";
-import { productRoute } from "./src/Routes/ProductRoute.js";
-import { valueRoute } from "./src/Routes/aboutValuesRoute.js";
-
-import {homeRouter} from"./src/Routes/homePage.js"
-
-import {serviceRoute} from "./src/Routes/ServiceRoute.js";
-import { productRoute } from "./src/Routes/ProductRoute.js";
-
-
-import {serviceRoute} from "./src/Routes/ServiceRoute.js";
-
 
 
 dotenv.config();
