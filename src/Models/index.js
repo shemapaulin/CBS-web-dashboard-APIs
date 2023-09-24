@@ -11,12 +11,7 @@ database=new Sequelize(configer.url,{
     dialect:"mysql"
 });
 }else {
-    database= new Sequelize(
-      configer.database,
-      configer.username,
-      configer.password,
-      configer
-    );
+   
   }
 
 export default  database;
