@@ -6,6 +6,11 @@ import db from './index.js';
 
 
 const AboutValues = db.define('AboutValues', {
+  id: {
+    type: DataTypes.INTEGER,
+    primaryKey: true,
+    autoIncrement: true,
+  },
     Main_title: {
       type: DataTypes.STRING,
       allowNull: true, 

@@ -27,7 +27,8 @@ const getService=async(req,res)=>{
 
 try {
     
-    const serviceId= req.body.id;
+    const serviceId= req.params.id;
+    console.log("EXECUTE ME",serviceId);
     const service= await Service.findOne({ where: { id: serviceId } });
    
     if (service) {

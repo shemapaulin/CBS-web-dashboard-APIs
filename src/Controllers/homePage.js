@@ -23,21 +23,21 @@ const createHomepage = async (req, res) => {
   }
 };
 
-const getHomepage=async(req,res)=>{
-  
-    const hiroId= req.body.id;
-    const hiro = await Homepage.findOne({ where: { id: hiroId } });
+const getHomepage = async (req, res) => {
+  const hiroId = req.query.id;
+
+  const hiro = await Homepage.findOne({ where: { id: hiroId } });
+
+  if (hiro) {
+    res.json({ result: hiro });
     console.log(hiro);
-    if (hiro) {
-      res.json({ result: hiro });
-      console.log(hiro);
-    } else {
-      res.status(404).json({ message: "homepage hiro not found" });
-    }
-  };
-const updateHomepage=async(req,res)=>{
+  } else {
+    res.status(404).json({ message: "homepage hiro not found" });
+  }
+};
+const updateHomepage = async (req, res) => {
   try {
-    const hiroId= req.params.id;
+    const hiroId = req.params.id;
     const inputValidation = hiroSchema.validate(req.body);
     if (inputValidation.error) return reportJoiError(inputValidation, res);
     const { hero_description, hero_sub_description } = req.body;
@@ -53,9 +53,8 @@ const updateHomepage=async(req,res)=>{
     } else {
       res.status(404).send("source not found or no changes made");
     }
-
   } catch (error) {
-    console.log("internal server error",error);
+    console.log("internal server error", error);
   }
-}
-export { createHomepage,getHomepage,updateHomepage };
+};
+export { createHomepage, getHomepage, updateHomepage };

@@ -24,7 +24,7 @@ const createValue = async (req, res) => {
 
 const getValue = async (req, res) => {
   try {
-    const valueId = req.body.id;
+    const valueId = req.params.id;
     const value = await AboutValues.findOne({ where: { id: valueId } });
 
     if (value) {

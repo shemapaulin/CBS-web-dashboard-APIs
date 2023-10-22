@@ -24,7 +24,7 @@ const createProduct = async (req, res) => {
 
 const getProduct = async (req, res) => {
   try {
-    const productId = req.body.id;
+    const productId = req.params.id;
     const product = await Product.findOne({ where: { id: productId } });
 
     if (product) {
