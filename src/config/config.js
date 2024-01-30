@@ -13,7 +13,7 @@ const config={
     }
 }
 // console.log(" this is my DB_URL:", process.env.DB_URL);
-console.log("CONNECTED", db_url);
+console.log("DB CONNECTED");
 
 
 export default config; 

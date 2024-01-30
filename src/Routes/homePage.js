@@ -42,7 +42,7 @@ const router = Router();
  *     in: header
  */
 
-router.post("/homePage", isSecure, createHomepage);
+router.post("/homePage",  createHomepage);
 
 /**
  * @swagger
@@ -69,7 +69,7 @@ router.post("/homePage", isSecure, createHomepage);
  *         name: Authorization
  *         in: header
  */
-router.get("/homePage", isSecure, getHomepage);
+router.get("/homePage",  getHomepage);
 /**
  * @swagger
  * /api/homePage/{id}:
